@@ -1,3 +1,4 @@
+import XCPlayground
 import UIKit
 
 var request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:4567/current_queue")!)
@@ -7,19 +8,23 @@ var response: NSURLResponse?
 var data: NSData?
 var error: NSError?
 
-var dataVal: NSData = NSURLConnection.sendSynchronousRequest(
+func logResults(data: NSData?, error: NSError?) {
+    var jsonResult: [NSDictionary] = NSJSONSerialization.JSONObjectWithData(
+        data!,
+        options: NSJSONReadingOptions.MutableContainers,
+        error: nil
+        ) as [NSDictionary]
+    jsonResult[0].objectForKey("id")
+    jsonResult[0].objectForKey("playerOne")
+    jsonResult[0].objectForKey("playerTwo")
+}
+
+NSURLConnection.sendAsynchronousRequest(
     request,
-    returningResponse: &response,
-    error: &error
-)!
+    queue: NSOperationQueue.mainQueue(),
+    completionHandler: {(response, data, error)
+        in logResults(data, error)
+    }
+)
 
-var jsonResult: [NSDictionary] = NSJSONSerialization.JSONObjectWithData(
-    dataVal,
-    options: NSJSONReadingOptions.MutableContainers,
-    error: nil
-) as [NSDictionary]
-
-
-jsonResult[0].objectForKey("id")
-jsonResult[0].objectForKey("playerOne")
-jsonResult[0].objectForKey("playerTwo")
+XCPSetExecutionShouldContinueIndefinitely()
