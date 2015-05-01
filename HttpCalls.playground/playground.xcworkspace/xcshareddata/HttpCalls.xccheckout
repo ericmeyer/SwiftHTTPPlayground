@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>AC2001A7-5DAC-44CC-916E-95BDB5505165</string>
+	<key>IDESourceControlProjectName</key>
+	<string>HttpCalls</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1FF20FFC953FB65BA8BDABC54D5F35E44804BDBD</key>
+		<string>https://github.com/ericmeyer/SwiftHTTPPlayground.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>HttpCalls.playground</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1FF20FFC953FB65BA8BDABC54D5F35E44804BDBD</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/ericmeyer/SwiftHTTPPlayground.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1FF20FFC953FB65BA8BDABC54D5F35E44804BDBD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1FF20FFC953FB65BA8BDABC54D5F35E44804BDBD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SwiftHTTPPlayground</string>
+		</dict>
+	</array>
+</dict>
+</plist>
