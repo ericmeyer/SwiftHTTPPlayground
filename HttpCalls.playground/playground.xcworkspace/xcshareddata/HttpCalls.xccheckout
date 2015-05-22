@@ -11,7 +11,7 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>1FF20FFC953FB65BA8BDABC54D5F35E44804BDBD</key>
-		<string>https://github.com/ericmeyer/SwiftHTTPPlayground.git</string>
+		<string>github.com:ericmeyer/SwiftHTTPPlayground.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>HttpCalls.playground</string>
@@ -21,7 +21,7 @@
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/ericmeyer/SwiftHTTPPlayground.git</string>
+	<string>github.com:ericmeyer/SwiftHTTPPlayground.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
