@@ -35,36 +35,25 @@ func handleAddMatchResponse(data: NSData?, error: NSError?) {
 
 
 func logGETResults(data: NSData?, error: NSError?) {
-    var jsonResult = convertToJSON(data)
-    jsonResult[jsonResult.count - 1].objectForKey("id")
+    var jsonResult = convertToDictionary(data)
+    var matchId: String = jsonResult[jsonResult.count - 1].objectForKey("id") as! String
     jsonResult[jsonResult.count - 1].objectForKey("playerOne")
     jsonResult[jsonResult.count - 1].objectForKey("playerTwo")
+
+    deleteMatch(matchId)
 }
 
 
 
-func deleteMatch() {
-    var responseData: NSData?
-    var request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:4567/current_queue")!)
-    request.HTTPMethod = "GET"
+func deleteMatch(matchId: String) {
+    var deleteRequest = NSMutableURLRequest(URL: NSURL(string: "http://localhost:4567/delete_match?id=\(matchId)")!);
+    deleteRequest.HTTPMethod = "DELETE"
 
-    NSURLConnection.sendAsynchronousRequest(
-        request,
-        queue: NSOperationQueue.mainQueue(),
-        completionHandler: {(response, data, error) in
-            var jsonResult = convertToJSON(data)
-            var matchId: AnyObject? = jsonResult[jsonResult.count - 1].objectForKey("id")
-
-            var deleteRequest = NSMutableURLRequest(URL: NSURL(string: "http://localhost:4567/delete_match?id=\(matchId as! String)")!);
-            deleteRequest.HTTPMethod = "DELETE"
-
-            NSURLConnection.sendAsynchronousRequest(deleteRequest, queue: NSOperationQueue.mainQueue(), completionHandler: {(response, data, error) -> Void in})
-
-        }
-    )
+    NSURLConnection.sendAsynchronousRequest(deleteRequest, queue: NSOperationQueue.mainQueue(), completionHandler: {(response, data, error) -> Void in
+    })
 }
 
-func convertToJSON(data: NSData?) -> [NSDictionary] {
+func convertToDictionary(data: NSData?) -> [NSDictionary] {
     return NSJSONSerialization.JSONObjectWithData(
         data!,
         options: NSJSONReadingOptions.MutableContainers,
@@ -73,6 +62,5 @@ func convertToJSON(data: NSData?) -> [NSDictionary] {
 }
 
 addMatch()
-deleteMatch()
 
 XCPSetExecutionShouldContinueIndefinitely()
